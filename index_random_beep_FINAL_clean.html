@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Random Beep Timer</title>
+</head>
+<body style="background-color:#111;color:white;font-family:sans-serif;text-align:center;padding-top:50px;">
+  <h1>⏱️ ציפצופים רנדומליים</h1>
+  <p>הצפצופים יתנגן בזמנים רנדומליים בין 10 ל-30 שניות</p>
+  <button onclick="startBeeps()" style="padding:10px 20px;font-size:16px;">התחל</button>
+  <audio id="beep" src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg"></audio>
+  <script>
+    function startBeeps() {
+      function playBeep() {
+        document.getElementById("beep").play();
+        const next = Math.random() * 20000 + 10000; // 10–30 sec
+        setTimeout(playBeep, next);
+      }
+      playBeep();
+    }
+  </script>
+</body>
+</html>
